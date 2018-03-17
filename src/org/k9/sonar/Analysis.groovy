@@ -5,7 +5,7 @@ class Analysis {
   def config
   def script
 
-  Analysic(script,config) {
+  Analysis(script,config) {
       this.config = config
       this.script = script
   }
