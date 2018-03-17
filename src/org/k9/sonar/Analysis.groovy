@@ -18,9 +18,7 @@ class Analysis {
 
 void codeanalysis(){   
   this.script.stage ('SonarQube Analysis') {
-      withSonarQubeEnv('Sonarqube') { 
     this.script.sh "mvn clean package sonar:sonar"
-  }
 }
 }
 }
