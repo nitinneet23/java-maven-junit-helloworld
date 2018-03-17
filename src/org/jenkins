@@ -1,0 +1,23 @@
+@Library('github.com/nitinneet23/java-maven-junit-helloworld@master') _
+import org.k9.*
+String giturl = "https://github.com/nitinneet23/java-maven-junit-helloworld.git"
+String branch = "master"
+pipeline{
+  agent any
+    stages {
+        stage ('gitcheckout') {
+          steps{
+            script{
+                
+              param = [
+                        giturl: "${giturl}",
+                        branch: "${branch}",
+                      ]
+                     new gitcheckout.Git(this,param).checkout()
+                     new sonar.Analysis(this,param).codeanalysis()
+                        
+        }
+      }
+    }
+  }
+}
