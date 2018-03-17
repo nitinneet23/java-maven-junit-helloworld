@@ -5,7 +5,7 @@ class Analysis {
   def config
   def script
 
-  Analysis(script,config) {
+  Analysic(script,config) {
       this.config = config
       this.script = script
   }
@@ -18,7 +18,9 @@ class Analysis {
 
 void codeanalysis(){   
   this.script.stage ('SonarQube Analysis') {
+      withSonarQubeEnv('Sonarqube') { 
     this.script.sh "mvn clean package sonar:sonar"
-    }
+  }
+}
 }
 }
