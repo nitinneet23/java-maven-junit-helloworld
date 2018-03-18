@@ -8,7 +8,7 @@ pipeline{
         stage ('gitcheckout') {
           steps{
             script{
-                
+                def scannerHome = tool 'sonarqube'
               param = [
                         giturl: "${giturl}",
                         branch: "${branch}",
